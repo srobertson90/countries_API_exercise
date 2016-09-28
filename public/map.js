@@ -9,7 +9,10 @@ var Map = function(container, coords, zoom){
   }
 
   this.addMarker = function(input){
-    var info = '<h4>name: ' + input.name + '</h4>';
+    var info = '<h4>' + input.name + '</h4>' + 
+    '<p> Captial: ' + input.capital +'</p>'+
+    '<p> Population: ' + input.population + ' people</p>' + 
+    '<p>Region: ' + input.region + '</p>';
     var marker = new google.maps.Marker({
       position: {lat: input.latlng[0], lng: input.latlng[1]},
       map: this.googleMap,
