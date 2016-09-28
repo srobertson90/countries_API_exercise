@@ -17,7 +17,7 @@ var makeRequest = function(url, callback){
 
 var app = function(){
   var container = document.getElementById('map');
-  var map = new Map(container, {lat:0, lng:0  #}, 1);
+  var map = new Map(container, {lat:0, lng:0}, 1);
   var url = "https://restcountries.eu/rest/v1";
   console.log("Before request");
   makeRequest(url, requestComplete);
