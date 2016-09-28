@@ -9,19 +9,18 @@ var Map = function(container, coords, zoom){
   }
 
   this.addMarker = function(input){
+    var info = '<h4>name: ' + input.name + '</h4>';
     var marker = new google.maps.Marker({
-      position: input.latlng,
+      position: {lat: input.latlng[0], lng: input.latlng[1]},
       map: this.googleMap,
-      icon: image
+      // icon: image
     });
-    if (input.info){ 
-      var infowindow = new google.maps.InfoWindow({
-        content: input.info
-      });
-      marker.addListener('click', function() {
-          infowindow.open(map, marker);
-      });
-    }
+    var infowindow = new google.maps.InfoWindow({
+      content: info
+    });
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
   }
 
 }

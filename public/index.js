@@ -1,3 +1,9 @@
+var map;
+
+var populateMarkers = function(country){
+  map.addMarker(country);
+}
+
 var requestComplete = function(){
   console.log(this.status);
   console.log("Request complete");
@@ -6,6 +12,7 @@ var requestComplete = function(){
   var countries = JSON.parse(jsonString);
   country = countries[0];
   console.log(country);
+  populateMarkers(country);
 }
 
 var makeRequest = function(url, callback){
@@ -17,8 +24,8 @@ var makeRequest = function(url, callback){
 
 var app = function(){
   var container = document.getElementById('map');
-  var map = new Map(container, {lat:0, lng:0}, 1);
-  var url = "https://restcountries.eu/rest/v1";
+  map = new Map(container, {lat:0, lng:0}, 1);
+  var url = "http://localhost:5000";
   console.log("Before request");
   makeRequest(url, requestComplete);
   console.log("After Request");
