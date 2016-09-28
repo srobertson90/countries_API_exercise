@@ -26,7 +26,7 @@ var makeRequest = function(url, callback){
 
 var app = function(){
   var container = document.getElementById('map');
-  map = new Map(container, {lat:50, lng:10}, 3);
+  map = new Map(container, {lat:50, lng:4}, 4);
   var url = "http://localhost:5000";
   console.log("Before request");
   makeRequest(url, requestComplete);
