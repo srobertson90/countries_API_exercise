@@ -1,7 +1,9 @@
 var map;
 
-var populateMarkers = function(country){
-  map.addMarker(country);
+var populateMarkers = function(countries){
+  for(var i =0; i < countries.length; i++){
+    map.addMarker(countries[i]);
+  }
 }
 
 var requestComplete = function(){
@@ -12,7 +14,7 @@ var requestComplete = function(){
   var countries = JSON.parse(jsonString);
   country = countries[0];
   console.log(country);
-  populateMarkers(country);
+  populateMarkers(countries);
 }
 
 var makeRequest = function(url, callback){
@@ -24,7 +26,7 @@ var makeRequest = function(url, callback){
 
 var app = function(){
   var container = document.getElementById('map');
-  map = new Map(container, {lat:0, lng:0}, 1);
+  map = new Map(container, {lat:50, lng:10}, 3);
   var url = "http://localhost:5000";
   console.log("Before request");
   makeRequest(url, requestComplete);
